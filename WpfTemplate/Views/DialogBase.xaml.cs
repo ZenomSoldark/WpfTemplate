@@ -23,6 +23,8 @@ namespace WpfTemplate.Views
     {
         public DialogBase()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
             InitializeComponent();
         }
 
