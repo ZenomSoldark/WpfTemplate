@@ -1,2 +1,2 @@
 # WpfTemplate
- This is WPF template. Prism and Mah Apps Metro installed.
+ WPFプロジェクトのテンプレートです。Prism、Mah Apps Metroを使用しています。
