@@ -22,7 +22,8 @@ namespace WpfTemplate
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            // 既存Window置き換え
+            containerRegistry.RegisterDialogWindow<Views.DialogBase>();
         }
     }
 }
