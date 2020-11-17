@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("WpfTemplate")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("UNITCOM PC")]
+[assembly: AssemblyCompany("ZenomSOldark")]
 [assembly: AssemblyProduct("WpfTemplate")]
-[assembly: AssemblyCopyright("Copyright © UNITCOM PC 2020")]
+[assembly: AssemblyCopyright("Copyright © ZenomSoldark 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
