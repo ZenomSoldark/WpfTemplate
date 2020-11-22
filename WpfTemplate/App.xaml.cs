@@ -16,8 +16,14 @@ namespace WpfTemplate
     /// </summary>
     public partial class App : PrismApplication
     {
+        //--------------------------------------------------------------------------------
+        //プロパティ
+        //--------------------------------------------------------------------------------
         public IDialogService AppDialogService { get { return Container.Resolve<IDialogService>(); } }
 
+        //--------------------------------------------------------------------------------
+        //メソッド
+        //--------------------------------------------------------------------------------
         protected override Window CreateShell()
         {
             return Container.Resolve<Views.MainWindow>();
@@ -27,6 +33,9 @@ namespace WpfTemplate
         {
             // 既存Window置き換え
             containerRegistry.RegisterDialogWindow<Views.DialogBase>();
+
+            //ダイアログ登録
+            containerRegistry.RegisterDialog<Views.Dialog.MessageDialog>();
         }
     }
 }

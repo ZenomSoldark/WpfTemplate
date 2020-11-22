@@ -21,7 +21,7 @@
 
     <DockPanel Margin="5">
         <DockPanel.Resources>
-            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Metro.Styles.MetroButton}">
+            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
                 <Setter Property="Width" Value="75"/>
                 <Setter Property="FontSize" Value="16"/>
             </Style>

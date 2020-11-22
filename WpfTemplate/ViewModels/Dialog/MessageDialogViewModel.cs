@@ -12,14 +12,16 @@ namespace WpfTemplate.ViewModels.Dialog
 {
     public class MessageDialogViewModel : BindableBase, IDialogAware
     {
-        #region Field
-
+        //--------------------------------------------------------------------------------
+        //フィールド
+        //--------------------------------------------------------------------------------
         /// <summary> Instructs the IDialogWindow to close the dialog.  </summary>
         public event Action<IDialogResult> RequestClose;
 
-        #endregion
 
-        #region Property
+        //--------------------------------------------------------------------------------
+        //プロパティ
+        //--------------------------------------------------------------------------------
 
         #region Title変更通知プロパティ
         private string _Title;
@@ -209,9 +211,10 @@ namespace WpfTemplate.ViewModels.Dialog
         }
         #endregion
 
-        #endregion
 
-        #region Command
+        //--------------------------------------------------------------------------------
+        //コマンド
+        //--------------------------------------------------------------------------------
 
         #region YesCommand
         private DelegateCommand _YesCommand;
@@ -309,7 +312,9 @@ namespace WpfTemplate.ViewModels.Dialog
         }
         #endregion
 
-        #endregion
+        //--------------------------------------------------------------------------------
+        //メソッド
+        //--------------------------------------------------------------------------------
 
         /// <summary>
         /// Determines if the dialog can be closed.

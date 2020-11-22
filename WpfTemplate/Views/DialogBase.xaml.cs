@@ -23,11 +23,14 @@ namespace WpfTemplate.Views
     {
         public DialogBase()
         {
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
-
-            InitializeComponent();
+            InitializeComponent();    
         }
 
         public IDialogResult Result { get; set; }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+        }
     }
 }

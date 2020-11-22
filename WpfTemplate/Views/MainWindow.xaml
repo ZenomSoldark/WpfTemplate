@@ -4,11 +4,21 @@
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:local="clr-namespace:WpfTemplate"
+                 xmlns:bh="http://schemas.microsoft.com/xaml/behaviors"
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:prism="http://prismlibrary.com/"
                  mc:Ignorable="d"
                  TitleCharacterCasing="Normal"
                  SaveWindowPosition="True"
-                 Title="MainWindow" Height="450" Width="800">
+                 Title="MainWindow"
+                 Height="450"
+                 Width="800">
+    <bh:Interaction.Triggers>
+        <bh:EventTrigger EventName="Closing">
+            <prism:InvokeCommandAction Command="{Binding ConfirmCloseCommand}"/>
+        </bh:EventTrigger>
+    </bh:Interaction.Triggers>
+    
     <Grid>
         
     </Grid>

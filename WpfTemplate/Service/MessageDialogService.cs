@@ -23,12 +23,22 @@ namespace WpfTemplate.Service
 
         }
 
+        //--------------------------------------------------------------------------------
+        //フィールド
+        //--------------------------------------------------------------------------------
         private IDialogService _DialogService = ((App)Application.Current).AppDialogService;
 
+        //--------------------------------------------------------------------------------
+        //プロパティ
+        //--------------------------------------------------------------------------------
         public string YesText { get; set; } = "はい";
         public string NoText { get; set; } = "いいえ";
         public string OkText { get; set; } = "OK";
         public string CancelText { get; set; } = "キャンセル";
+
+        //--------------------------------------------------------------------------------
+        //メソッド
+        //--------------------------------------------------------------------------------
 
         /// <summary>
         /// Shows the specified dialog service.
@@ -37,7 +47,7 @@ namespace WpfTemplate.Service
         /// <param name="title">The title.</param>
         /// <param name="message">The message.</param>
         /// <param name="callback">The callback.</param>
-        public void Show(IDialogService dialogService, string title, string message, Action<IDialogResult> callback)
+        public void Show(string title, string message, Action<IDialogResult> callback)
         {
             var name = nameof(Views.Dialog.MessageDialog);
             var parameters = new DialogParameters()
@@ -58,7 +68,7 @@ namespace WpfTemplate.Service
         /// <param name="message">The message.</param>
         /// <param name="button">The button.</param>
         /// <param name="callback">The callback.</param>
-        public void Show(IDialogService dialogService, string title, string message, MessageBoxButton button, Action<IDialogResult> callback)
+        public void Show(string title, string message, MessageBoxButton button, Action<IDialogResult> callback)
         {
             var name = nameof(Views.Dialog.MessageDialog);
             var parameters = new DialogParameters()
