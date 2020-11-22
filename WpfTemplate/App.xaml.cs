@@ -1,4 +1,5 @@
 ﻿using Prism.Ioc;
+using Prism.Services.Dialogs;
 using Prism.Unity;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace WpfTemplate
     /// </summary>
     public partial class App : PrismApplication
     {
+        public IDialogService AppDialogService { get { return Container.Resolve<IDialogService>(); } }
+
         protected override Window CreateShell()
         {
             return Container.Resolve<Views.MainWindow>();

@@ -11,6 +11,20 @@ namespace WpfTemplate.Service
 {
     public class MessageDialogService
     {
+        /// <summary> シングルトンインスタンス </summary>
+        public static MessageDialogService Instance { get; } = new MessageDialogService();
+
+        /// <summary>
+        /// コンストラクタ
+        /// (シングルトンインスタンスなのでプライベート)
+        /// </summary>
+        private MessageDialogService()
+        {
+
+        }
+
+        private IDialogService _DialogService = ((App)Application.Current).AppDialogService;
+
         public string YesText { get; set; } = "はい";
         public string NoText { get; set; } = "いいえ";
         public string OkText { get; set; } = "OK";
@@ -33,7 +47,7 @@ namespace WpfTemplate.Service
                     { nameof(MessageDialogViewModel.DialogButton), MessageBoxButton.OK },
                     { nameof(MessageDialogViewModel.OkText), OkText },
                 };
-            dialogService.ShowDialog(name, parameters, callback);
+            _DialogService.ShowDialog(name, parameters, callback);
         }
 
         /// <summary>
@@ -57,7 +71,7 @@ namespace WpfTemplate.Service
                     { nameof(MessageDialogViewModel.OkText), OkText },
                     { nameof(MessageDialogViewModel.CancelText), CancelText },
                 };
-            dialogService.ShowDialog(name, parameters, callback);
+            _DialogService.ShowDialog(name, parameters, callback);
         }
     }
 }
