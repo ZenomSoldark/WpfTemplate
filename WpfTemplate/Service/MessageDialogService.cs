@@ -20,13 +20,13 @@ namespace WpfTemplate.Service
         /// </summary>
         private MessageDialogService()
         {
-
+            _DialogService = ((App)Application.Current).AppDialogService;
         }
 
         //--------------------------------------------------------------------------------
         //フィールド
         //--------------------------------------------------------------------------------
-        private IDialogService _DialogService = ((App)Application.Current).AppDialogService;
+        private IDialogService _DialogService;
 
         //--------------------------------------------------------------------------------
         //プロパティ
@@ -41,13 +41,13 @@ namespace WpfTemplate.Service
         //--------------------------------------------------------------------------------
 
         /// <summary>
-        /// Shows the specified dialog service.
+        /// 簡易的なモーダルダイアログを表示
         /// </summary>
         /// <param name="dialogService">The dialog service.</param>
         /// <param name="title">The title.</param>
         /// <param name="message">The message.</param>
         /// <param name="callback">The callback.</param>
-        public void Show(string title, string message, Action<IDialogResult> callback)
+        public void ShowModal(string title, string message, Action<IDialogResult> callback)
         {
             var name = nameof(Views.Dialog.MessageDialog);
             var parameters = new DialogParameters()
@@ -61,14 +61,14 @@ namespace WpfTemplate.Service
         }
 
         /// <summary>
-        /// Shows the specified dialog service.
+        /// ボタン要素を設定したモーダルダイアログを表示
         /// </summary>
         /// <param name="dialogService">The dialog service.</param>
         /// <param name="title">The title.</param>
         /// <param name="message">The message.</param>
         /// <param name="button">The button.</param>
         /// <param name="callback">The callback.</param>
-        public void Show(string title, string message, MessageBoxButton button, Action<IDialogResult> callback)
+        public void ShowModal(string title, string message, MessageBoxButton button, Action<IDialogResult> callback)
         {
             var name = nameof(Views.Dialog.MessageDialog);
             var parameters = new DialogParameters()
@@ -82,6 +82,50 @@ namespace WpfTemplate.Service
                     { nameof(MessageDialogViewModel.CancelText), CancelText },
                 };
             _DialogService.ShowDialog(name, parameters, callback);
+        }
+
+        /// <summary>
+        /// 簡易的なモードレスダイアログを表示
+        /// </summary>
+        /// <param name="dialogService">The dialog service.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="message">The message.</param>
+        /// <param name="callback">The callback.</param>
+        public void ShowModeless(string title, string message, Action<IDialogResult> callback)
+        {
+            var name = nameof(Views.Dialog.MessageDialog);
+            var parameters = new DialogParameters()
+                {
+                    { nameof(MessageDialogViewModel.Title), title },
+                    { nameof(MessageDialogViewModel.Message), message },
+                    { nameof(MessageDialogViewModel.DialogButton), MessageBoxButton.OK },
+                    { nameof(MessageDialogViewModel.OkText), OkText },
+                };
+            _DialogService.Show(name, parameters, callback);
+        }
+
+        /// <summary>
+        /// ボタン要素を設定したモードレスダイアログを表示
+        /// </summary>
+        /// <param name="dialogService">The dialog service.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="message">The message.</param>
+        /// <param name="button">The button.</param>
+        /// <param name="callback">The callback.</param>
+        public void ShowModeless(string title, string message, MessageBoxButton button, Action<IDialogResult> callback)
+        {
+            var name = nameof(Views.Dialog.MessageDialog);
+            var parameters = new DialogParameters()
+                {
+                    { nameof(MessageDialogViewModel.Title), title },
+                    { nameof(MessageDialogViewModel.Message), message },
+                    { nameof(MessageDialogViewModel.DialogButton), button },
+                    { nameof(MessageDialogViewModel.YesText), YesText },
+                    { nameof(MessageDialogViewModel.NoText), NoText },
+                    { nameof(MessageDialogViewModel.OkText), OkText },
+                    { nameof(MessageDialogViewModel.CancelText), CancelText },
+                };
+            _DialogService.Show(name, parameters, callback);
         }
     }
 }

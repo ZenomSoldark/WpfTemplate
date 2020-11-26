@@ -15,7 +15,6 @@
         <Style TargetType="Window">
             <Setter Property="SizeToContent" Value="WidthAndHeight"/>
             <Setter Property="ResizeMode" Value="NoResize"/>
-            <Setter Property="prism:Dialog.WindowStartupLocation" Value="CenterScreen"/>
         </Style>
     </prism:Dialog.WindowStyle>
 
@@ -62,6 +61,7 @@
         <TextBlock Text="{Binding Message}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
+                   Margin="20"
                    FontSize="24"/>
     </DockPanel>
 </UserControl>

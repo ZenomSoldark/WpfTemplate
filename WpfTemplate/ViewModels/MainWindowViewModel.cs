@@ -31,7 +31,7 @@ namespace WpfTemplate.ViewModels
                     {
                         var title = "終了";
                         var msg = "アプリケーションを終了しますか？";
-                        MessageDialogService.Instance.Show(title, msg, System.Windows.MessageBoxButton.YesNo, (res) =>
+                        MessageDialogService.Instance.ShowModal(title, msg, System.Windows.MessageBoxButton.YesNo, (res) =>
                         {
                             if(res.Result != ButtonResult.Yes)
                             {
