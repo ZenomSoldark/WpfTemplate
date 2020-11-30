@@ -19,6 +19,7 @@ namespace WpfTemplate.ViewModels
         //--------------------------------------------------------------------------------
         //コマンド
         //--------------------------------------------------------------------------------
+
         #region ConfirmCloseCommand
         private DelegateCommand<System.ComponentModel.CancelEventArgs> _ConfirmCloseCommand;
         public DelegateCommand<System.ComponentModel.CancelEventArgs> ConfirmCloseCommand
