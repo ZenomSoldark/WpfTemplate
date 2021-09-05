@@ -16,14 +16,24 @@ namespace WpfTemplate
     /// </summary>
     public partial class App : PrismApplication
     {
-        //--------------------------------------------------------------------------------
-        //プロパティ
-        //--------------------------------------------------------------------------------
+        #region Property
         public IDialogService AppDialogService { get { return Container.Resolve<IDialogService>(); } }
+        #endregion
 
-        //--------------------------------------------------------------------------------
-        //メソッド
-        //--------------------------------------------------------------------------------
+        #region Method
+
+        #region Event
+        private void PrismApplication_Startup(object sender, StartupEventArgs e)
+        {
+
+        }
+
+        private void PrismApplication_Exit(object sender, ExitEventArgs e)
+        {
+
+        }
+        #endregion
+
         protected override Window CreateShell()
         {
             return Container.Resolve<Views.MainWindow>();
@@ -37,32 +47,6 @@ namespace WpfTemplate
             //ダイアログ登録
             containerRegistry.RegisterDialog<Views.Dialog.MessageDialog>();
         }
-
-        protected override void InitializeModules()
-        {
-            var splashScreen = new Views.SplashScreenWindow();
-            splashScreen.Show();
-            try
-            {
-                //スプラッシュスクリーン表示中の処理
-                System.Threading.Thread.Sleep(3000);
-
-                base.InitializeModules();
-            }
-            finally
-            {
-                splashScreen.Close();
-            }
-        }
-
-        private void PrismApplication_Startup(object sender, StartupEventArgs e)
-        {
-
-        }
-
-        private void PrismApplication_Exit(object sender, ExitEventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

@@ -23,23 +23,18 @@ namespace WpfTemplate.Service
             _DialogService = ((App)Application.Current).AppDialogService;
         }
 
-        //--------------------------------------------------------------------------------
-        //フィールド
-        //--------------------------------------------------------------------------------
+        #region Field
         private IDialogService _DialogService;
+        #endregion
 
-        //--------------------------------------------------------------------------------
-        //プロパティ
-        //--------------------------------------------------------------------------------
+        #region Property
         public string YesText { get; set; } = "はい";
         public string NoText { get; set; } = "いいえ";
         public string OkText { get; set; } = "OK";
         public string CancelText { get; set; } = "キャンセル";
+        #endregion
 
-        //--------------------------------------------------------------------------------
-        //メソッド
-        //--------------------------------------------------------------------------------
-
+        #region Method
         /// <summary>
         /// 簡易的なモーダルダイアログを表示
         /// </summary>
@@ -127,5 +122,6 @@ namespace WpfTemplate.Service
                 };
             _DialogService.Show(name, parameters, callback);
         }
+        #endregion
     }
 }

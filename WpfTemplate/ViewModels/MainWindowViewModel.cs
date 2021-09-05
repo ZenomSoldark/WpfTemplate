@@ -15,10 +15,7 @@ namespace WpfTemplate.ViewModels
     /// </summary>
     public class MainWindowViewModel : BindableBase
     {
-
-        //--------------------------------------------------------------------------------
-        //コマンド
-        //--------------------------------------------------------------------------------
+        #region Command
 
         #region ConfirmCloseCommand
         private DelegateCommand<System.ComponentModel.CancelEventArgs> _ConfirmCloseCommand;
@@ -44,6 +41,8 @@ namespace WpfTemplate.ViewModels
                 return _ConfirmCloseCommand;
             }
         }
+        #endregion
+
         #endregion
     }
 }

@@ -12,16 +12,14 @@ namespace WpfTemplate.ViewModels.Dialog
 {
     public class MessageDialogViewModel : BindableBase, IDialogAware
     {
-        //--------------------------------------------------------------------------------
-        //フィールド
-        //--------------------------------------------------------------------------------
+        #region Field
         /// <summary> Instructs the IDialogWindow to close the dialog.  </summary>
         public event Action<IDialogResult> RequestClose;
+        #endregion
 
+        #region Property
 
-        //--------------------------------------------------------------------------------
-        //プロパティ
-        //--------------------------------------------------------------------------------
+        #region Notification
 
         #region Title変更通知プロパティ
         private string _Title;
@@ -110,7 +108,7 @@ namespace WpfTemplate.ViewModels.Dialog
         }
         #endregion
 
-        #region DisplayYesButton
+        #region DisplayYesButton変更通知プロパティ
         private bool _DisplayYesButton;
         /// <summary>
         /// Gets or sets a value indicating whether [display yes button].
@@ -125,7 +123,7 @@ namespace WpfTemplate.ViewModels.Dialog
         }
         #endregion
 
-        #region DisplayNoButton
+        #region DisplayNoButton変更通知プロパティ
         private bool _DisplayNoButton;
         /// <summary>
         /// Gets or sets a value indicating whether [display no button].
@@ -140,7 +138,7 @@ namespace WpfTemplate.ViewModels.Dialog
         }
         #endregion
 
-        #region DisplayOkButton
+        #region DisplayOkButton変更通知プロパティ
         private bool _DisplayOkButton = true;
         public bool DisplayOkButton
         {
@@ -149,7 +147,7 @@ namespace WpfTemplate.ViewModels.Dialog
         }
         #endregion
 
-        #region DisplayCancelButton
+        #region DisplayCancelButton変更通知プロパティ
         private bool _DisplayCancelButton;
         /// <summary>
         /// Gets or sets a value indicating whether [display cancel button].
@@ -211,10 +209,9 @@ namespace WpfTemplate.ViewModels.Dialog
         }
         #endregion
 
+        #endregion
 
-        //--------------------------------------------------------------------------------
-        //コマンド
-        //--------------------------------------------------------------------------------
+        #region Command
 
         #region YesCommand
         private DelegateCommand _YesCommand;
@@ -312,10 +309,11 @@ namespace WpfTemplate.ViewModels.Dialog
         }
         #endregion
 
-        //--------------------------------------------------------------------------------
-        //メソッド
-        //--------------------------------------------------------------------------------
+        #endregion
 
+        #endregion
+
+        #region Method
         /// <summary>
         /// Determines if the dialog can be closed.
         /// </summary>
@@ -349,5 +347,6 @@ namespace WpfTemplate.ViewModels.Dialog
             OkText = parameters.GetValue<string>(nameof(OkText));
             CancelText = parameters.GetValue<string>(nameof(CancelText));
         }
+        #endregion
     }
 }
